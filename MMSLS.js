@@ -29,7 +29,8 @@ const MMSLS = [
   function randomNumber(min = 0, max = 100) {
     return Math.min(Math.floor(min + Math.random() * (max - min)), max);
   }
-  const MMSL_random = MMSLS[randomNumber(0, MMSLS.length)];
+  const MMSL_random = MMSLS[0]
+      //randomNumber(0, MMSLS.length)];
   
   module.exports = {
     MMSL_random

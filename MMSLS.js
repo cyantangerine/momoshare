@@ -18,20 +18,30 @@ const MMSLS = [
 =====================请在下面编辑=====================
 =====================请在下面编辑=====================
  */
-const MMSLS = [
-    "https://www.maimemo.com/share/page?uid=3140859&pid=eeb7f0378bcb46d347788ba10d38169f&tid=922d20ad01f750538807a0b01f400b45"
-  ]
-  /**
-   * 生成随机数字
-   * @param {number} min 最小值（包含）
-   * @param {number} max 最大值（不包含）
-   */
-  function randomNumber(min = 0, max = 100) {
-    return Math.min(Math.floor(min + Math.random() * (max - min)), max);
-  }
-  const MMSL_random = MMSLS[0]
-      //randomNumber(0, MMSLS.length)];
-  
-  module.exports = {
-    MMSL_random
-  }
+const MMSLS = []
+/**
+ * 生成随机数字
+ * @param {number} min 最小值（包含）
+ * @param {number} max 最大值（不包含）
+ */
+function randomNumber(min = 0, max = 100) {
+  return Math.min(Math.floor(min + Math.random() * (max - min)), max);
+}
+
+
+const fs = require('fs');
+try {
+  // 同步读取文件
+  const data = fs.readFileSync('url.txt', 'utf8');
+  console.log(data);
+  MMSLS.push(data)
+} catch (err) {
+  console.error(err);
+}
+const MMSL_random = MMSLS[0]
+
+//randomNumber(0, MMSLS.length)];
+
+module.exports = {
+  MMSL_random
+}

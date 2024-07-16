@@ -1,3 +1,5 @@
+链接放入url.txt，运行github action即可。
+
 # momoshare
 
 整个项目需要导入GitHub从而使用GitHub Actions来运行！！！

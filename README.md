@@ -30,7 +30,7 @@ Actions定时任务运行最短间隔限制为5分钟，为防止github封号，
 ```
 3. 打开代码文件夹，将鼠标放到文件夹空白位置，按住shift键，同时按鼠标右键，弹出菜单后选择打开powershell。然后输入 `cmd` 回车，之后输入下面的命令安装Python依赖。
 ```
-    pip install -r ./方法2.proxy_click/requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple some-package
+    pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple some-package
 ```
 4. 修改了本地`url.txt`的分享链接后，输入代码运行：
 ```

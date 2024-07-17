@@ -31,7 +31,7 @@ jobs:
            python-version: "3.10.14"
            
       - name: 'Install requirements'
-        run: pip install -r "./方法2.proxy_click/requirements.txt"
+        run: pip install -r requirements.txt
 
       # Set-timezone
       - name: Set time zone

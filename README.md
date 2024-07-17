@@ -1,7 +1,12 @@
-链接放入url.txt，运行github action即可。
+# 使用说明
+链接放入url.txt（需要每天更新），运行github action即可。
+如果需要修改运行次数，请前往./.github/workflow/random.yml修改conn表达式（如不会可自行搜索conn表达式在线生成工具）
+如果需要微信推送，可以在仓库设置中点击“Secrets and Environment”设置“仓库”为下文对应的变量。
+
+自2024年开始，墨墨官方限制分享每日最多可得3个上限。因此修改最多运行次数5次。
 
 # momoshare
-
+使用action的随机ip访问墨墨背单词分享url
 整个项目需要导入GitHub从而使用GitHub Actions来运行！！！
 
 多账号思路解决，多账户可能稳定20

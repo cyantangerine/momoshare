@@ -73,7 +73,7 @@ async function SendMsg(message) {
         8 * 60 * 60 * 1000
     ).toLocaleString() + "\n" + require('./MMSLS').MMSL_random + "\n" + message
     f = fs.openSync("./random_click.log", "a")
-    fs.writeFileSync(f, new String(message))
+    fs.writeFileSync(f, message)
     fs.closeSync(f)
 }
 

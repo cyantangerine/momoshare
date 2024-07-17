@@ -21,7 +21,7 @@ try {
   }
 } catch (err) {
   f = fs.openSync("./random_click.log", "a")
-  fs.writeFileSync(f, new String(err))
+  fs.writeFileSync(f, new String(err).toString())
   fs.closeSync(f)
   console.error(err);
 }

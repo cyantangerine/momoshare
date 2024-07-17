@@ -4,7 +4,7 @@ name: 方法2代理访问
 on:
   schedule:
     - cron: '5 4,12 * * *'
-    # 更改执行时间/次数 具体可以百度 cron 的配置进行更改 
+    # 推荐每日只需运行1-2次，更改执行时间/次数 具体可以百度 cron 的配置进行更改 
   workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -40,7 +40,7 @@ jobs:
       - name: 'set timestamp'
         run: |
           echo `date +"%Y-%m-%d %H:%M:%S"  ` >> proxy_click.log
-          
+
       # cat ./url.txt >> proxy_click.log
       - name: 'Working'
         env:

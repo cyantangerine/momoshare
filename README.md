@@ -1,4 +1,7 @@
+本仓库综合整合了多种当前墨墨背单词分享链接赚上限的方法，感谢来自 52PJ的miranda0131和LXK9301，及@smarktoto [/ momo-share-proxy](https://github.com/smarktoto/momo-share-proxy)
+
 # 使用说明
+
 链接放入url.txt（需要每天更新，在墨墨app点击分享发送到qq我的电脑或微信传输助手，然后复制链接，放入该处，可下载github app更新），运行github action即可发起每日点击。
 如果需要修改运行次数，请前往./.github/workflow/random.yml修改conn表达式（如不会可自行搜索conn表达式在线生成工具）
 如果需要微信推送，可以在仓库设置中点击“Secrets and variables-Actions”设置“Repository secrets”为下文对应的变量。
@@ -17,7 +20,7 @@
 
 ## 环境变量说明
 
-~~ 请在文件   `MMSLS.js`  填入分享链接 ~~ 放入url.txt，分享链接有效期只能用两天，需要更新tid参数，然后通过每天打卡，再分享一次链接，才能有更新获取到的上限！
+~~请在文件   `MMSLS.js`  填入分享链接~~ 放入url.txt，分享链接有效期只能用两天，需要更新tid参数，然后通过每天打卡，再分享一次链接，才能有更新获取到的上限！
 
 一定要每天打卡后继续分享一次（无需发给朋友点击）！
 
@@ -44,5 +47,4 @@
 | `PUSH_PLUS_USER`  |                         pushplus推送                         | 非必须 | 一对多推送的“群组编码”（一对多推送下面->您的群组(如无则新建)->群组编码）注:(1、需订阅者扫描二维码 2、如果您是创建群组所属人，也需点击“查看二维码”扫描绑定，否则不能接受群组消息推送)，只填`PUSH_PLUS_TOKEN`默认为一对一推送 |
 |  `TG_PROXY_HOST`  |                      Telegram 代理的 IP                      | 非必须 | 代理类型为 http。例子：http代理 http://127.0.0.1:1080 则填写 127.0.0.1 |
 |  `TG_PROXY_PORT`  |                     Telegram 代理的端口                      | 非必须 | 例子：http代理 http://127.0.0.1:1080 则填写 1080             |
-
 

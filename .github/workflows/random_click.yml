@@ -1,9 +1,9 @@
-name: Click分享Link
+name: 方法1随机访问
 on:
   push:
     branches:
       - main
-  schedule:
+  schedule: # 如需修改运行次数，请修改此表达式，在线生成表达式：https://cron.qqe2.com/
     - cron: '36 4,6,7,9,10 * * *' 
   workflow_dispatch:
   watch:
@@ -28,11 +28,13 @@ jobs:
       - name: npm install
         run: |
           npm install
+      - name: 'set timestamp'
+        run: |
+            echo `date +"%Y-%m-%d %H:%M:%S"  ` >> random_click.log
       - name: '运行'
         run: |
-          node momo_random.js
+          node "方法1.random_click/momo_random.js"
         env:
-          name: PUSH_KEY
           PUSH_PLUS_TOKEN: ${{ secrets.PUSH_PLUS_TOKEN }}
           PUSH_PLUS_USER: ${{ secrets.PUSH_PLUS_USER }}
           IGOT_PUSH_KEY: ${{ secrets.IGOT_PUSH_KEY }}
@@ -45,3 +47,13 @@ jobs:
           TG_USER_ID: ${{ secrets.TG_USER_ID }}
           DD_BOT_TOKEN: ${{ secrets.DD_BOT_TOKEN }}
           DD_BOT_SECRET: ${{ secrets.DD_BOT_SECRET }}
+      
+      - name: Commit #上传新的random_click.log到仓库
+        run: |
+            git config --global user.email 1487819688@qq.com
+            git config --global user.name robot
+            git add random_click.log
+            git commit -m "Run Log Commit" -a
+  
+      - name: Push changes
+        uses: ad-m/github-push-action@master

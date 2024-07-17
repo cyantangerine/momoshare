@@ -1,0 +1,59 @@
+name: 方法2代理访问
+
+# Controls when the action will run.
+on:
+  schedule:
+    - cron: '5 4,12 * * *'
+    # 更改执行时间/次数 具体可以百度 cron 的配置进行更改 
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout
+        uses: actions/checkout@master
+
+      # Set-timezone
+      - name: Set time zone
+        run: sudo timedatectl set-timezone 'Asia/Shanghai'
+
+      # Runs a single command using the runners shell
+      - name: 'Set up Python'
+        uses: actions/setup-python@v1
+        with:
+           python-version: "3.10.14"
+           
+      - name: 'Install requirements'
+        run: pip install -r "./方法2.proxy_click/requirements.txt"
+
+      # Set-timezone
+      - name: Set time zone
+        run: sudo timedatectl set-timezone 'Asia/Shanghai'
+
+      - name: 'set timestamp'
+        run: |
+          echo `date +"%Y-%m-%d %H:%M:%S"  ` >> proxy_click.log
+          cat ./url.txt >> proxy_click.log
+
+      - name: 'Working'
+        env:
+          link: ${{secrets.link}} 
+        run: |
+          python "./方法2.proxy_click/momo.py"
+
+      - name: Commit #上传新的proxy_click.log到仓库
+        run: |
+          git config --global user.email 1487819688@qq.com
+          git config --global user.name robot
+          git add proxy_click.log
+          git commit -m "Run Log Commit" -a
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master

@@ -67,11 +67,12 @@ async function SendMsg(message) {
     } else {
         console.log(message);
     }
+    url = require('./MMSLS').MMSL_random
     message = "######## " + new Date(
         new Date().getTime() +
         new Date().getTimezoneOffset() * 60 * 1000 +
         8 * 60 * 60 * 1000
-    ).toLocaleString() + "\n" + require('./MMSLS').MMSL_random + "\n" + message
+    ).toLocaleString() + "\n" + url.substring(url.indexOf("tid=")) + "\n" + message
     f = fs.openSync("./random_click.log", "a")
     fs.writeFileSync(f, message)
     fs.closeSync(f)
@@ -145,7 +146,7 @@ async function addLike(timeout = 3 * 1000) {
                 let sum = data.match(/(?<=增加了)(.+?)(?=个单词)/)[0];
                 let namedata = data.match(/(?<=alt=")\S*(?="\/)/)[0];
                 console.log(`【 用  户 】：${namedata} 加了 ${sum} 个单词上限`);
-                msg += `\n 【 用  户 】：${namedata} 加了 ${sum} 个单词上限`
+                msg += `\n 【 用  户 】 加了 ${sum} 个单词上限`
             } catch (e) {
                 $.logErr(e, resp);
             } finally {

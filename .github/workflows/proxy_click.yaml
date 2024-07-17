@@ -40,8 +40,8 @@ jobs:
       - name: 'set timestamp'
         run: |
           echo `date +"%Y-%m-%d %H:%M:%S"  ` >> proxy_click.log
-          cat ./url.txt >> proxy_click.log
-
+          
+      # cat ./url.txt >> proxy_click.log
       - name: 'Working'
         env:
           link: ${{secrets.link}} 

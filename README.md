@@ -14,7 +14,7 @@ Actions定时任务运行最短间隔限制为5分钟，为防止github封号，
 使用Github Actions的随机IP访问分享链接。
 1. 点击fork仓库，复制到自己账号下。打开自己的仓库，点击上方的Actions，在左侧选择对应方法的action，点击Enable Workflow，此后任务将在github服务器上自动运行。
 2. 将分享链接放入自己账号仓库下的 `url.txt`（需要每天更新，在墨墨app点击分享发送到qq我的电脑或微信传输助手，然后复制链接，放入该处，可下载github app更新），确保enable了github action即可发起每日点击。
-3. 如果需要修改每日的自动运行次数，请前往 `./.github/workflow/random_click.yml` 修改cron表达式（如不会可自行搜索cron表达式在线生成工具，如https://cron.qqe2.com/）
+3. 如果需要修改每日的自动运行次数，请前往 `./.github/workflow/random_click.yml` 修改cron表达式（如不会可自行搜索cron表达式在线生成工具，如https://cron.qqe2.com/ ）
 4. 如果需要微信推送，可以在仓库设置中点击“Secrets and variables-Actions”设置“Repository secrets”为下文推送设置对应的变量。
 ## 方法2
 使用HTTP代理的IP访问分享链接。
